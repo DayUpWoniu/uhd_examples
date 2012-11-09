@@ -1,0 +1,16 @@
+# Output products list for <chipscope_ila_1port_41bits>
+chipscope_ila_1port_41bits.cdc
+chipscope_ila_1port_41bits.constraints/chipscope_ila_1port_41bits.ucf
+chipscope_ila_1port_41bits.constraints/chipscope_ila_1port_41bits.xdc
+chipscope_ila_1port_41bits.gise
+chipscope_ila_1port_41bits.ncf
+chipscope_ila_1port_41bits.ngc
+chipscope_ila_1port_41bits.ucf
+chipscope_ila_1port_41bits.v
+chipscope_ila_1port_41bits.veo
+chipscope_ila_1port_41bits.xco
+chipscope_ila_1port_41bits.xdc
+chipscope_ila_1port_41bits.xise
+chipscope_ila_1port_41bits_flist.txt
+chipscope_ila_1port_41bits_readme.txt
+chipscope_ila_1port_41bits_xmdf.tcl
