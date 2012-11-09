@@ -24,4 +24,8 @@ fifo_xlnx_512x36_2clk_18to36.v \
 fifo_xlnx_512x36_2clk_18to36.xco \
 fifo_xlnx_512x36_2clk_prog_full.v \
 fifo_xlnx_512x36_2clk_prog_full.xco \
+chipscope_ila_1port_41bits.v \
+chipscope_ila_1port_41bits.xco \
+chipscope_icon.v \
+chipscope_icon.xco \
 ))

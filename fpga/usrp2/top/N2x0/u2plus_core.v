@@ -768,5 +768,50 @@ module u2plus_core
    assign debug = 32'd0;
    assign debug_gpio_0 = 32'd0;
    assign debug_gpio_1 = 32'd0;
+
+   //----------------------------------------------------------------------------------------------
+   //
+   // Chipscope debug example
+   //
+   //----------------------------------------------------------------------------------------------
+   wire [35:0] 	 CONTROL0;
+   reg 		 set_stb_pipe1;
+   reg [7:0] 	 set_addr_pipe1;
+   reg [31:0] 	 set_data_pipe1;
+   reg 		 set_stb_pipe2;
+   reg [7:0] 	 set_addr_pipe2;
+   reg [31:0] 	 set_data_pipe2;
+   
+
+   //
+   // Provide pipeline registers to make timing closure easier.
+   //
+   always @(posedge wb_clk) begin
+      set_stb_pipe1 <= set_stb;
+      set_addr_pipe1 <= set_addr;
+      set_data_pipe1 <= set_data;
+      set_stb_pipe2 <= set_stb_pipe1;
+      set_addr_pipe2 <= set_addr_pipe1;
+      set_data_pipe2 <= set_data_pipe1;
+      
+   end
+   //
+   // Simple trigger, depth 512, logic analyzer block.
+   //
+
+   chipscope_ila_1port_41bits chipscope_ila_1port_41bits_i1
+     (
+      .CONTROL(CONTROL0),
+      .CLK(wb_clk),
+      .TRIG0({set_stb_pipe2,set_addr_pipe2,set_data_pipe2}));
+   //
+   // Chipscope controller (connected to JTAG with invisible implied wiring)
+   //
+
+   chipscope_icon   chipscope_icon_i1
+     (
+      .CONTROL0(CONTROL0) // INOUT BUS [35:0]
+      );
+ 
    
 endmodule // u2_core
